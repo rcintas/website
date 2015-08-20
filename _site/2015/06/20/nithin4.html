@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>New build system and workspace model in Robocomp <p>#1</p> | RoboComp</title>
+	<meta name="description" content="I have started the workspace model design keeping in mind the following points.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/website/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/website/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://robocomp.github.io/website/2015/06/20/nithin4.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="RoboComp" href="http://robocomp.github.io/website/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-37388407-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/website/">
+			<img class="avatar" src="/website/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/website/">RoboComp</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/Blog/">
+					Blog
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/GSoC/">
+					GSoC
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/projects/">
+					Projects
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/Tutorials/">
+					Tutorials
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/about/">
+					About
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/contact/">
+					Contact
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/install/">
+					Install
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/robocomp" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/website/')">
+    <h1 class="title">New build system and workspace model in Robocomp <p>#1</p></h1>
+    <p class="meta">
+    June 20, 2015
+    
+    </p>
+  </header>
+  <section class="post-content"><p>I have started the workspace model design keeping in mind the following points.</p>
+
+<ul>
+  <li>you should be able to build all packages at once, if necessary and also separately</li>
+  <li>the source tree should be kept clean</li>
+  <li>It should scalable and also existing components should be easily moved in</li>
+  <li>dependencies should be easily handled</li>
+</ul>
+
+<p>Referring to other similar workspace models i came up with the following model.</p>
+
+<p>The recommended layout for development is as follows:</p>
+
+<p><img src="/website/img/workspace_model.jpg" alt=" Robocomp workspace model" title="Robocomp workspace model" /></p>
+
+<h2 id="elements-of-workspace">Elements of workspace</h2>
+
+<h3 id="workspace">Workspace</h3>
+<p>The workspace is the folder inside which you are going to be actively developing. Keeping things in a folder with connected development helps keep separation of development models.</p>
+
+<h3 id="source-space">Source space</h3>
+<p>The source space is the folder is where it will be expected to look for packages when building. This folder is easily identified as it is where the toplevel.cmake is linked from the catkin project. Each component should be in a direct subdirectory. if the directory contains a file named <em>IGNORE_COMP</em> the component will be ignored while building the workspace.</p>
+
+<h3 id="build-space">Build Space</h3>
+<p>The build space is the folder in which cmake is invoked and generates artifacts such as the CMakeCache. A typical invocation of cmake will look like this when following the recommended layout.</p>
+
+<pre><code>cmake ../src
+</code></pre>
+
+<p>This need not be a direct sub directory of workspace. It can be any where.</p>
+
+<h3 id="development-space">Development Space</h3>
+<p>The development space is where build system generates the binaries and config files which are executable before installation. This should be a direst subdirectory of workspace. Currently the <code>devel space is merged with the source space</code>.</p>
+
+<h3 id="install-space">Install Space</h3>
+<p>If make install is called this is the directory into which cmake will target all installations. This directory contains a file names <em>.rc_install</em> which contain a semi colon separated paths of workspaces which are installed to this install space. Please note that the robocomp istall path <em>/opt/robocomp</em> can is also an install space.</p>
+
+<hr />
+<p>Nithin Murali</p>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+    </div>
+    <script src="/website/js/main.js"></script>
+
+
+<footer class="site-footer">
+	<p class="text">Copyright <a href="http://robocomp.github.io">RoboComp</a>
+</p>
+</footer>
+
+
+  </body>
+</html>

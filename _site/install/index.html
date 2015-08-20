@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Install | RoboComp</title>
+	<meta name="description" content="Robotics Framework">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/website/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/website/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://robocomp.github.io/website/install/">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="RoboComp" href="http://robocomp.github.io/website/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-37388407-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/website/">
+			<img class="avatar" src="/website/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/website/">RoboComp</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/Blog/">
+					Blog
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/GSoC/">
+					GSoC
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/projects/">
+					Projects
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/Tutorials/">
+					Tutorials
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/about/">
+					About
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/contact/">
+					Contact
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a class="page-link" href="/website/install/">
+					Install
+				</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/robocomp" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image">
+  <header style="background-image: url('/website/img/sample_feature_img_2.png')">
+    <h1 class="title">Install</h1>
+  </header>
+  <section class="post-content"><h1 id="robocomphttprobocompnet"><a href="http://robocomp.net">RoboComp</a></h1>
+
+<p><a href="https://gitter.im/robocomp/robocomp?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/robocomp/robocomp" /></a></p>
+
+<p>by <a href="http://robolab.unex.es">RoboLab</a>, <a href="http://www.grupoisis.uma.es/index.php?option=com_jresearch&amp;view=staff&amp;Itemid=3&amp;lang=es">ISIS</a> and many other collaborators.</p>
+
+<p>RoboComp is an open-source Robotics framework providing the tools to create and modify software components that communicate through public interfaces. Components may <em>require</em>, <em>subscribe</em>, <em>implement</em> or <em>publish</em>
+interfaces in a seamless way. Building new components is done using two domain specific languages, IDSL and CDSL. With IDSL you define an interface and with CDSL you specify how the component will communicate with the world. With this information, a code generator creates C++ and/or Python sources, based on CMake, that compile and execute flawlessly. When some of these features have to be changed, the component can be easily regenerated and all the user specific code is preserved thanks to a simple inheritance mechanism.</p>
+
+<h1 id="installation-in-ubuntu--tested-in-1404-and-1410">Installation in Ubuntu ( tested in 14.04 and 14.10)</h1>
+
+<p>Make sure you have installed the following packages from the Ubuntu repository:</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install git git-annex cmake g++ libgsl0-dev libopenscenegraph-dev cmake-qt-gui zeroc-ice35 freeglut3-dev libboost-system-dev libboost-thread-dev qt4-dev-tools yakuake openjdk-7-jre python-pip  python-pyparsing python-numpy python-pyside pyside-tools libxt-dev pyqt4-dev-tools qt4-designer 
+</code></pre>
+
+<h3 id="robocomp-core-libraries">RoboComp core libraries</h3>
+
+<p><em>cd</em> to your home directory (you are probably in it already) and type:</p>
+
+<pre><code>git clone https://github.com/robocomp/robocomp.git
+</code></pre>
+
+<p>Now we will create a symbolic link so RobComp can find everything. You will have to enter your passwd:</p>
+
+<pre><code>sudo ln -s /home/&lt;your-linux-user&gt; /home/robocomp 
+</code></pre>
+
+<p>Edit your ~/.bashrc file</p>
+
+<pre><code>gedit ~/.bashrc
+</code></pre>
+
+<p>Add these lines at the end:</p>
+
+<pre><code>export ROBOCOMP=/home/&lt;your-linux-user&gt;/robocomp
+export PATH=$PATH:/opt/robocomp/bin
+</code></pre>
+
+<p>make bash process the modified file by typing:</p>
+
+<pre><code>source ~/.bashrc
+</code></pre>
+
+<p>Done! Now let’s compile and install the whole thing:</p>
+
+<pre><code>sudo rm -r /opt/robocomp
+cd robocomp
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+</code></pre>
+
+<p>The RoboComp’s core libraries and simulator should now be compiled and installed in <code>/opt/robocomp</code>.</p>
+
+<p>Let’s now tell Linux where to find RoboComp’s libraries:</p>
+
+<pre><code>sudo nano /etc/ld.so.conf
+</code></pre>
+
+<p>and add the following line:</p>
+
+<pre><code>/opt/robocomp/lib/
+</code></pre>
+
+<p>save the file and type:</p>
+
+<pre><code>sudo ldconfig
+</code></pre>
+
+<p>Done! Now let’s have some fun.</p>
+
+<h3 id="running-the-rcis-robotics-simulator">Running the RCIS Robotics simulator</h3>
+
+<p>We will first fetch some meshes and textures used by the simulator (it will take a while):</p>
+
+<pre><code>cd ~/robocomp
+git annex get .
+</code></pre>
+
+<p>Now let’s run the simulator.</p>
+
+<pre><code>cd ~/robocomp/files/innermodel
+rcis simpleworld.xml
+</code></pre>
+
+<p>Congratulations! RCIS should be up and running with a simple robot endowed with a laser and an RGBD camera, moving on a wooden floor. Don’t forget to turn around the floor to see the robot from above.</p>
+
+<h4 id="installing-some-robolabs-components-from-github">Installing some RoboLab’s components from GitHub</h4>
+
+<p>The software of the robots using RoboComp is composed of different software components working together, communicating among them. What we just installed is just the core of RoboComp (the simulator, a component generator and some libraries). To have other features like joystick control we have to run additional software components available from other repositories, for example robocomp-robolab:</p>
+
+<pre><code>cd ~/robocomp/components
+git clone https://github.com/robocomp/robocomp-robolab.git
+</code></pre>
+
+<p>The RoboLab’s set of basic robotics components are now dowloaded. You can see them in <code>~/robocomp/components/robocomp-robolab/components</code></p>
+
+<h4 id="connecting-a-joystick">Connecting a JoyStick</h4>
+
+<p>If you have a joystick around, connect it to the USB port and:</p>
+
+<pre><code>cd ~/robocomp/components/robocomp-robolab/components/joystickComp
+cmake .
+make
+cd bin
+sudo addgroup your-user dialout   // To solve some permissions issues in Ubuntu
+./startJoyStick.sh 
+</code></pre>
+
+<p>Your joystick should be now running. It will make the robot advance and turn at your will. If the component does not start or the robot does not move stop joystickcomp with:</p>
+
+<pre><code>./forceStopJoyStickComp.sh
+</code></pre>
+
+<p>and check where the joystick device file has been created (e.g., <code>/dev/input/js0</code>). If it is not <code>/dev/input/js0</code>, edit <code>~/robocomp/components/robocomp-robolab/components/joystickComp/etc/config</code> change it accordingly and restart. Note that you might want to save the <em>config</em> file to the component’s home directory so it does not interfere with future github updates.</p>
+
+<p>You can find more tutorials on RoboComp in <a href="doc/README.md">tutorials!</a></p>
+
+<p>Drop comments and ask questions in:</p>
+
+<ul>
+  <li>https://groups.google.com/forum/?hl=es#!forum/robocomp-dev</li>
+  <li>https://gitter.im/robocomp</li>
+</ul>
+
+<p>Please, report any bugs to pbustos@unex.es</p>
+
+</section>
+</article>
+
+    </div>
+    <script src="/website/js/main.js"></script>
+
+
+<footer class="site-footer">
+	<p class="text">Copyright <a href="http://robocomp.github.io">RoboComp</a>
+</p>
+</footer>
+
+
+  </body>
+</html>
